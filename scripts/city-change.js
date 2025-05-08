@@ -7,11 +7,11 @@ let uiColor;
 
 function updateBackground() {
     const bgImages = 
-      'url(../assets/' + currentWeather + '.gif), ' +
-      'url(../assets/' + currentForeground + '.png), ' +
-      'url(../assets/' + currentMidground + '.png), ' +
-      'url(../assets/' + currentBackground + '.png), ' +
-      'url(../assets/' + currentSky + '.png)';
+      'url(./assets/' + currentWeather + '.gif), ' +
+      'url(./assets/' + currentForeground + '.png), ' +
+      'url(./assets/' + currentMidground + '.png), ' +
+      'url(./assets/' + currentBackground + '.png), ' +
+      'url(./assets/' + currentSky + '.png)';
   
     console.log("Setting background-image to:", bgImages);
   
@@ -41,10 +41,10 @@ $(document).ready(function () {
   
 // Define your sounds globally
 const weatherSounds = {
-  raineffect: new Audio('../sounds/rain.mp3'),
-  sandstorm: new Audio('../sounds/desert.mp3'),
-  snoweffect: new Audio('../sounds/snow.mp3'),
-  cherryeffect: new Audio('../sounds/cherry.mp3')
+  raineffect: new Audio('./sounds/rain.mp3'),
+  sandstorm: new Audio('./sounds/desert.mp3'),
+  snoweffect: new Audio('./sounds/snow.mp3'),
+  cherryeffect: new Audio('./sounds/cherry.mp3')
 };
 
 // Optional: set loop and volume for all
