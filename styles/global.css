@@ -216,6 +216,10 @@ canvas {
     position: fixed;
 }
 
+#hidden-div {
+    display: none;
+}
+
 #info-menu.show {
     display: block;
     padding-bottom: 1em;
