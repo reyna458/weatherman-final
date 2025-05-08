@@ -18,12 +18,12 @@ $(document).ready(function()
     
     // Sound library
     const sounds = {
-        t: new Audio('../sounds/thunder.mp3'),
-        w: new Audio('../sounds/wind.mp3'),
-        b: new Audio('../sounds/bird.mp3'),
-        r: new Audio('../sounds/rainbow.mp3'),
-        s: new Audio('..sounds/siren.mp3'),
-        p: new Audio('../sounds/plane.mp3')
+        t: new Audio('./sounds/thunder.mp3'),
+        w: new Audio('./sounds/wind.mp3'),
+        b: new Audio('./sounds/bird.mp3'),
+        r: new Audio('./sounds/rainbow.mp3'),
+        s: new Audio('.sounds/siren.mp3'),
+        p: new Audio('./sounds/plane.mp3')
     };
     
     // Set individual sound volumes
