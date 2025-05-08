@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+#html.move {
+    height: 100%;
+    width: 100vw;
+    background-size: 25%, 150%, 100%, 150%, 250%;
+    background-repeat: repeat, repeat-x, repeat-x, repeat-x, repeat-x;
+    background-position: bottom;
+    animation: backgroundScroll 60s infinite;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #3B123D; */
+}
+
+#html.nomove {
+    height: 100%;
+    width: 100vw;
+    background-size: 25%, 150%, 100%, 150%, 250%;
+    background-repeat: repeat, repeat-x, repeat-x, repeat-x, repeat-x;
+    background-position: bottom;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: #3B123D; */
+}
+
+#time {
+    position: fixed;
+    bottom: 0;
+    font-family: "Azeret Mono", monospace;
+    font-weight: 300;
+    font-size: 15px;
+    align-self: center;
+    color: white;
+    transition: bottom 1s;
+}
+
+#time.hidden {
+    opacity: 0;
+}
+
+
+canvas {
+    display: block;
+    width: 100vh;
+    height: 200vh;
+    overflow: hidden;
+}
+
+.theme-button.selected {
+    color: white;
+    background-color: black;
+}
+
+.selected {
+    color: white;
+
+    background-color: black;
+}
+
+#times {
+    width: 50px;
+}
+
+@keyframes backgroundScroll {
+        0%   {background-position: -20px 100%;}
+        50%  {background-position: -400px 100%;}
+        100% {background-position: -20px 100%;}
+    }
+
+#customize-menu, #settings-menu, #info-menu {
+    display: none;
+    width: 500px;
+    background-color: #C1C5B2;
+    z-index: 100;
+    position: absolute;
+    pointer-events: auto;
+}
+
+#weatherman {
+    justify-self: left;
+    margin: 0;
+    margin-left: .5em;
+    grid-column: 1;
+    margin-block: 0;
+    color: white;
+    font-family: "Azeret Mono", monospace;
+    font-weight: 300;
+    font-size: 24px;
+    align-self: center;
+}
+
+#presets {
+    justify-self: right;
+    grid-column: 2;
+    align-self: center;
+}
+
+#btm-container {
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: blueviolet;
+    display: grid;
+    grid-template-columns: 5fr 5fr 75px 75px;
+    grid-template-rows: 1fr;
+    max-height: 5px;
+    align-items: center;
+    transition: max-height 1s;
+}
+
+#btm-container:hover > #bottom-bar {
+    opacity: 1;
+    max-height: 50px;
+    transition: max-height 1s;
+}
+
+#btm-container:hover ~ #time {
+    bottom: 5%;
+    transition: bottom 1s;
+}
+
+#settings {
+    grid-column: 3;
+    grid-row: 1;
+    border: none;
+    max-width: 50px;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(321deg) brightness(104%) contrast(102%);
+}
+
+#settings-button {  
+    background-color: #c1c5b200;
+    max-width: 75px;
+    justify-self: right;
+ }
+
+#info {
+    grid-column: 4;
+    grid-row: 1;
+    max-width: 50px;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(321deg) brightness(104%) contrast(102%);
+}
+
+#info-button {  
+    background-color: #c1c5b200;
+    max-width: 75px;
+    justify-self: right;
+ }
+
+#drag-bar {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    background-color: blueviolet;
+    height: 50px;
+}
+
+#reset-true {
+    opacity: 0;
+}
+
+.drag-top {
+    grid-column: 1;
+    color: white;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    margin-left: 0.5em;
+    font-family: "Azeret Mono", monospace;
+    font-weight: 300;
+}
+
+.x {
+    grid-column: 2;
+    height: 50px;
+    background-color: red;
+    color: white;
+    font-family: "Azeret Mono", monospace;
+    font-weight: 100;
+    font-size: 24px;
+    align-self: center;
+}
+
+/* #hover {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+} */
+
+#customize-menu.show {
+    display: block;
+    padding-bottom: 1em;
+    box-shadow: 5px 5px 5px black;
+    border-right: white 1px solid;
+    border-bottom: white 1px solid;
+}
+
+#settings-menu.show {
+    display: block;
+    padding-bottom: 1em;
+    box-shadow: 5px 5px 5px black;
+    border-right: white 1px solid;
+    border-bottom: white 1px solid;
+    z-index: 100;
+    position: fixed;
+}
+
+#info-menu.show {
+    display: block;
+    padding-bottom: 1em;
+    box-shadow: 5px 5px 5px black;
+    border-right: white 1px solid;
+    border-bottom: white 1px solid;
+    z-index: 100;
+    position: fixed;
+}
+
+#info-menu.show h1 {
+  display: flex;
+  margin: .5em;
+  margin-left: .25em;
+}
+
+p {
+    line-height: 125%;
+    margin: .5em;
+}
+
+#checkboxes, #master-vol, #music {
+    margin: 1em;
+}
+
+
+#background, #foreground, #midground, #weather, #sky {
+    margin: 1em;
+}
+
+#airplane.hidden {
+    display: none;
+}
+
+#wind.hidden {
+    display: none;
+}
+
+#wind1.hidden {
+    display: none;
+}
+
+#airplane.moveit {
+    display: block;
+    position: fixed;
+    max-width: 100px;
+    animation: flightSchool 12s;
+}   
+
+#wind.moveit {
+    display: block;
+    position: fixed;
+    transform: translateY(20px);
+    animation: flightSchool 3.5s infinite;
+    max-width: 150px;
+}
+
+#wind1.moveit {
+    display: block;
+    position: fixed;
+    transform: translateY(250px);
+    animation: flightSchool 3.5s infinite;
+    animation-delay: .5s;
+    max-width: 150px;
+}
+
+@keyframes flightSchool {
+    0% {
+        left: -15%;
+        top: 15%;
+    }
+
+    100% {
+        left: 200%;
+        top: 17%;
+    }
+}
+
+#city {
+    background-color: purple;
+    color: white;
+  }
+  
+  /* Target data-theme="desert" */
+#desert {
+    background-color: sandybrown;
+  }
+  
+ #mountains {
+    background-color: lightblue;
+  }
+
+#cherry {
+    background-color: #F2A8F8;
+  }
+
+ #beach {
+    background-color: #B6FDC1;
+  }
+
+
+[data-theme="city"] {
+    background-color: purple;
+    color: white;
+  }
+  
+  /* Target data-theme="desert" */
+  [data-theme="desert"] {
+    background-color: sandybrown;
+  }
+  
+  /* Target data-theme="mountain" */
+  [data-theme="mountain"] {
+    background-color: lightblue;
+  }
+
+  [data-theme="cherry"] {
+    background-color: #F2A8F8;
+  }
+
+  [data-theme="beach"] {
+    background-color: #B6FDC1;
+  }
+
+
+#hello {
+    font-family: "Azeret Mono", monospace;
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+}
+
+#greeting {
+    position: fixed;
+    top: 5px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.271);
+}
+
+#suggestions {
+    position: fixed;
+    top: 50px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.271);
+}
+
+#play {
+    position: fixed;
+    background-color: darkmagenta;
+    color: white;
+    top: 25%;
+    left: 25%;
+    z-index: 1000;
+    text-align: center;
+    padding: .5em;
+}
+
+.play-text {
+    font-family: "Azeret Mono", monospace;
+    font-weight: 200;
+    font-size: 16px;
+    color: white;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+#greeting.hidden {
+    position: fixed;
+    top: 5px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.271);
+    opacity: 0;
+}
+
+#suggestions.hidden {
+    position: fixed;
+    top: 50px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.271);
+    opacity: 0;
+}
+
+
+h3 {
+    font-family: "Azeret Mono", monospace;
+    font-weight: 200;
+    font-size: 16px;
+    color: white;
+}

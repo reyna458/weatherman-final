@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<html id="html" class="move">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Weatherman</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/global.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <!-- <h1 id="hover">Hover at the bottom of the page...</h1> -->
+       
+    <div id="btm-container">
+        <div id="bottom-bar" class="changeUI">
+            <h1 id="weatherman">Weatherman</h1>
+            <div id="presets">
+                <button id="city">City</button>
+                <button id="desert">Desert</button>
+                <button id="mountains">Mountains</button>
+                <button id="cherry">Cherry</button>
+                <button id="beach">Beach</button>
+                <button id="customize">Custom</button>
+            </div>
+            <button id="settings-button"><img id="settings" src="assets/settings.svg"></button>
+            <button id="info-button"><img id="info" src="assets/info-icon.svg"></button>
+        </div> 
+    </div>
+
+        <div id="customize-menu">
+            <div id="drag-bar" class="changeUI">
+                <h2 class="drag-top">World settings</h2>
+                <button class="x">X</button>
+            </div>
+            <div id="foreground">
+                <h2>Foreground</h2>
+                <button class="theme-button selected" data-type="foreground" data-theme="city">City</button>
+                <button class="theme-button" data-type="foreground" data-theme="desert">Desert</button>
+                <button class="theme-button" data-type="foreground" data-theme="mountain">Mountain</button>
+                <button class="theme-button" data-type="foreground" data-theme="cherry">Cherry</button>
+                <button class="theme-button" data-type="foreground" data-theme="beach">Beach</button>
+            </div>
+        
+            <div id="midground">
+                <h2>Midground</h2>
+                <button class="theme-button selected" data-type="midground" data-theme="city">City</button>
+                <button class="theme-button" data-type="midground" data-theme="desert">Desert</button>
+                <button class="theme-button" data-type="midground" data-theme="mountain">Mountain</button>
+                <button class="theme-button" data-type="midground" data-theme="cherry">Cherry</button>
+                <button class="theme-button" data-type="midground" data-theme="beach">Beach</button>
+            </div>
+        
+            <div id="background">
+                <h2>Background</h2>
+                <button class="theme-button selected" data-type="background" data-theme="city">City</button>
+                <button class="theme-button" data-type="background" data-theme="desert">Desert</button>
+                <button class="theme-button" data-type="background" data-theme="mountain">Mountain</button>
+                <button class="theme-button" data-type="background" data-theme="cherry">Cherry</button>
+                <button class="theme-button" data-type="background" data-theme="beach">Beach</button>
+            </div>
+        
+            <div id="sky">
+                <h2>Sky</h2>
+                <button class="theme-button selected" data-type="sky" data-theme="city">City</button>
+                <button class="theme-button" data-type="sky" data-theme="desert">Desert</button>
+                <button class="theme-button" data-type="sky" data-theme="mountain">Mountain</button>
+                <button class="theme-button" data-type="sky" data-theme="cherry">Cherry</button>
+                <button class="theme-button" data-type="sky" data-theme="beach">Beach</button>
+            </div>
+        
+            <div id="weather">
+            <h2>Weather</h2>
+                <button class="theme-button selected" data-type="weather" data-theme="city">Clear</button>
+                <button class="theme-button" data-type="weather" data-theme="desert">Sandstorm</button>
+                <button class="theme-button" data-type="weather" data-theme="mountain">Snow</button>
+                <button class="theme-button" data-type="weather" data-theme="cherry">Petals</button>
+                <button class="theme-button" data-type="weather" data-theme="beach">Rain</button>
+            </div>
+        </div>
+            <div id="play">
+                <h1 class="play-text">Welcome to Weatherman!</h1>
+                <h2 class="play-text"><span class='underline'>Press to begin</span></h2>
+                <h3 class="play-text">Hover at the bottom of the page for information and more options.</h3>
+            </div>
+
+            <div id="time" class="hidden">
+                <h2><span id="triggercounter"></span>s</h2>
+            </div>
+
+            <div id="greeting" class="hidden">
+                <h2 id="hello">Good morning.</h2>
+            </div>
+
+            <div id="suggestions" class="hidden">
+                <h3 class="fill"></h3>
+            </div>
+
+            <img src="assets/airplane.png" id="airplane" class="hidden">
+            <img src="assets/wind.gif" id="wind" class="hidden">
+            <img src="assets/wind.gif" id="wind1" class="hidden">
+
+        <div id="info-menu">
+            <div id="drag-bar" class="changeUI">
+                <h2 class="drag-top">Information</h2>
+                <button class="x">X</button>
+            </div>
+            <h1>Welcome to Weatherman</h1>
+            <p>This is a tool/game to generate loops of white noise for studying, sleeping, or any general escapism you may be looking for. You can draw clouds by dragging your mouse across the page, and create sounds using the different keys on your keyboard. Feel free to experiment and discover new sounds!</p>
+
+            <p>In the settings menu you can customize the length of the loop, as well as what is displayed on screen. You can change your environment using the buttons on the bottom bar. Happy weathering!</p>
+        </div>
+        
+        <div id="settings-menu">
+            <div id="drag-bar" class="changeUI">
+                <h2 class="drag-top">Settings</h2>
+                <button class="x">X</button>
+            </div>
+
+        
+            
+            
+
+            <div id="master-vol">
+                <h2>Cloud fade time</h2>
+                <select id="times">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5" selected>5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select> seconds.
+
+                <h2>Total loop time</h2>
+                <select id="loops">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                    <option value="60" selected>60</option>
+                    <option value="70">70</option>
+                    <option value="80">80</option>
+                    <option value="90">90</option>
+                    <option value="100">100</option>
+                    <option value="110">110</option>
+                    <option value="120">120</option>
+                </select> seconds.
+            </div>
+
+            <div id="checkboxes">
+                <button id="greeting-trigger" class="selected">Greeting</button>
+                <button id="suggestions-trigger" class="selected">Suggestions</button>
+                <button id="movebg" class="selected">Background scroll</button>
+                <button id="showtimer" class="selected">Display timer</button>
+                <button id="reset">Reset</button>
+                <button id="reset-true">Really reset</button>
+            </div>
+        </div>
+
+      
+
+        <script src="scripts/city-change.js" defer></script>
+        <script src="scripts/sketch.js" defer></script>
+        <script src="scripts/greeting-time.js" defer></script>
+        <script src="scripts/sounds.js" defer></script>
+    </body>
+</html>
